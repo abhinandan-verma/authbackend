@@ -1,0 +1,28 @@
+{
+  "name": "authbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinandan-verma/authbackend.git"
+  },
+  "author": "Abhinandan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhinandan-verma/authbackend/issues"
+  },
+  "homepage": "https://github.com/abhinandan-verma/authbackend#readme",
+  "dependencies": {
+    "@colors/colors": "^1.6.0",
+    "color": "^4.2.3",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.2",
+    "nodemailer": "^6.9.9",
+    "nodemon": "^3.0.3"
+  }
+}
