@@ -34,10 +34,11 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
     if(!this.isModified("password")) return next();
+    
     const hash = await bcrypt.hash(this.password, Number(bcryptSalt));
     this.password = hash;
     next();
 }
 );
 
-module.exports = mongoose.model("User".brightMagenta.bold, userSchema);
+module.exports = mongoose.model("User", userSchema);

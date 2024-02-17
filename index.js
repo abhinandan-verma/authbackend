@@ -3,13 +3,13 @@ import dotenv from "dotenv";
 import colors from "@colors/colors";
 import { connection } from "./db.js";
 import express from "express";
-import { router } from "./routes.js";
+import { router } from "./routes/index.routes.js";
 import cors from "cors";
 dotenv.config();
 
 const app = express();
 
-let DB_URL = process.env.DB_URL || "mongodb://localhost:27017/express-mongoose";
+let DB_URL = process.env.MONGODB_URL
 
 const port = process.env.PORT || 8000;
 
@@ -20,14 +20,20 @@ const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 app.use(router);
-app.use("/api/v1", router);
+app.use("/api/v1", require("./routes/index.routes.js"));
 
 app.use((error, req, res, next) => {
-    res.status(500).json({ error: error.message });
+    res
+    .status(500)
+    .json(
+        { 
+            error: error.message 
+        }
+    );
   });
 
 app.listen(port, () => {
-    console.log(colors.green(`Server is running on port ${port}`));
+    console.log(colors.green(`Server is running on port ${port}`.cyan.bold));
 });
 
 module.exports = app;

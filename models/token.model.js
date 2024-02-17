@@ -1,16 +1,14 @@
 import mongoose, {Schema} from "mongoose";
-import colors from "@colors/colors";
-import dotenv from "dotenv";
-dotenv.config();
 
 const tokenSchema = new Schema({
     token: {
         type: String,
         required: true,
     },
-    user: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: "User",
+        required: true,
     },
     createdAt: {
         type: Date,
